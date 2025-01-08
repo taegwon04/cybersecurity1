@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>해커로부터 데이터를 지켜라!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #1f1c2c, #5a4b81);
+            color: #ffffff;
+        }
+        #content {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 70%;
+            max-width: 800px;
+        }
+        #content h1 {
+            font-size: 2.5em;
+            color: #9c27b0; /* 보라색 계열 */
+            text-shadow: 0 0 5px #9c27b0, 0 0 10px #7b1fa2;
+            margin-bottom: 20px;
+        }
+        #content img {
+            width: 150px;
+            margin: 20px 0;
+            border-radius: 50%;
+            border: 3px solid #ffffff;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        #content p {
+            font-size: 1.2em;
+            line-height: 1.8;
+        }
+        .rules {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 10px;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+            text-align: left;
+            font-size: 1.2em;
+        }
+        .rules li {
+            margin: 10px 0;
+        }
+        .example {
+            margin-top: 15px;
+            font-style: italic;
+            color: #ffccff;
+        }
+        #content button {
+            padding: 10px 20px;
+            background: linear-gradient(90deg, #8e44ad, #9b59b6);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(155, 89, 182, 0.5);
+        }
+        #content button:hover {
+            background: linear-gradient(90deg, #9b59b6, #8e44ad);
+            box-shadow: 0 6px 15px rgba(155, 89, 182, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <h1>해커로부터 데이터를 지켜라! - 2</h1>
+        <img src="guard.png" alt="디지털 윤리 지킴이">
+        <p>
+            모든 사이트에 동일한 비밀번호를 사용하는 것은 위험합니다.<br>
+            한 계정이 해킹되면 다른 계정도 위험해질 수 있어요.<br>
+            각 웹 사이트마다 다른 비밀번호를 설정하는 방법을 알아보세요:
+        </p>
+        <div class="rules">
+            <ul>
+                <li>각 사이트 이름을 포함하거나 특정 규칙을 적용해 기억하기 쉽게 설정합니다.</li>
+                <li>ex) 쇼핑몰 → Show@1234!, 이메일 → Email@1234!</li>
+                <li>모든 계정을 보호하기 위해 비밀번호 관리 앱을 사용하는 것도 좋은 방법입니다.</li>
+            </ul>
+            <div class="example">
+                주의: 동일한 비밀번호를 여러 사이트에 사용하면
+                해킹 위험이 높아질 수 있습니다!
+            </div>
+        </div>
+        <button onclick="goToQuiz()">다음: 비밀번호 설정하기</button>
+    </div>
+
+    <script>
+        function goToQuiz() {
+            location.href = "quiz.html"; // 퀴즈 페이지 파일로 이동
+        }
+    </script>
+</body>
+</html>

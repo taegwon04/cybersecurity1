@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비밀번호 퀴즈</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #1f1c2c, #5a4b81);
+            color: #ffffff;
+        }
+        #quiz {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 70%;
+            max-width: 800px;
+            position: relative;
+        }
+        #quiz img {
+            width: 120px;
+            height: auto;
+            margin: 0 auto 20px auto;
+            display: block;
+        }
+        #quiz h2 {
+            font-size: 2em;
+            color: #d4c2d7;
+            margin-bottom: 20px;
+        }
+        #quiz p {
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            color: #ffccff;
+        }
+        #quiz input {
+            padding: 10px;
+            width: 80%;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            margin: 20px 0;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            text-align: center;
+        }
+        #quiz button {
+            padding: 10px 20px;
+            background: linear-gradient(90deg, #8e44ad, #9b59b6);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(155, 89, 182, 0.5);
+        }
+        #quiz button:hover {
+            background: linear-gradient(90deg, #9b59b6, #8e44ad);
+            box-shadow: 0 6px 15px rgba(155, 89, 182, 0.8);
+        }
+        #securityBar {
+            margin-top: 20px;
+            height: 20px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        #securityLevel {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, #4caf50, #8bc34a);
+            border-radius: 10px;
+        }
+        #securityFeedback {
+            margin-top: 15px;
+            font-size: 1.2em;
+            color: #ffccff;
+        }
+        #finalMessage {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #4caf50;
+            display: none; /* 처음에는 숨김 */
+        }
+    </style>
+</head>
+<body>
+    <div id="quiz">
+        <img src="guard.png" alt="디지털 윤리 지킴이">
+        <h2>정보 보호 센터 비밀번호 설정</h2>
+        <p>강력한 비밀번호를 설정해서 해커로부터 데이터를 지켜주세요 :)</p>
+        <input type="text" id="passwordInput" placeholder="비밀번호를 입력하세요">
+        <button onclick="checkAnswer()">제출</button>
+        <div id="securityBar">
+            <div id="securityLevel"></div>
+        </div>
+        <p id="securityFeedback"></p>
+        <p id="finalMessage">해커로부터 데이터를 지켜냈습니다! 다음 장소로 이동해주세요.</p>
+    </div>
+
+    <script>
+        function checkAnswer() {
+            const input = document.getElementById('passwordInput').value;
+            const level = document.getElementById('securityLevel');
+            const feedback = document.getElementById('securityFeedback');
+            const finalMessage = document.getElementById('finalMessage');
+            const regex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+            let strength = 0;
+
+            if (input.length >= 8) strength += 30;
+            if (/[A-Z]/.test(input)) strength += 20;
+            if (/[a-z]/.test(input)) strength += 20;
+            if (/\d/.test(input)) strength += 15;
+            if (/[@$!%*?&]/.test(input)) strength += 15;
+
+            level.style.width = strength + "%";
+
+            if (regex.test(input)) {
+                feedback.textContent = `강력한 비밀번호입니다! 보안 지수: ${strength}%`;
+                feedback.style.color = "#4caf50";
+                finalMessage.style.display = "block"; // 메시지 표시
+            } else {
+                feedback.textContent = `약한 비밀번호입니다. 보안 지수: ${strength}%`;
+                feedback.style.color = "#ff5722";
+                finalMessage.style.display = "none"; // 메시지 숨김
+                alert("조금 더 강한 비밀번호를 입력해주세요.");
+            }
+        }
+    </script>
+</body>
+</html>
