@@ -6,15 +6,20 @@
     <title>해커로부터 데이터를 지켜라!</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             background: linear-gradient(135deg, #1f1c2c, #5a4b81);
             color: #ffffff;
+            font-family: 'Arial', sans-serif;
+        }
+        #wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* 상단부터 시작 */
+            min-height: 100vh;
+            padding: 20px; /* 화면 여백 */
+            box-sizing: border-box;
+            overflow-y: auto; /* 콘텐츠가 길어질 경우 스크롤 */
         }
         #content {
             text-align: center;
