@@ -6,11 +6,11 @@
     <title>해커로부터 데이터를 지켜라!</title>
     <style>
         body {
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             background: linear-gradient(135deg, #1f1c2c, #5a4b81);
             color: #ffffff;
-            font-family: 'Arial', sans-serif;
         }
         #wrapper {
             display: flex;
@@ -27,7 +27,7 @@
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            width: 70%;
+            width: 100%;
             max-width: 800px;
         }
         #content h1 {
@@ -81,25 +81,27 @@
     </style>
 </head>
 <body>
-    <div id="content">
-        <h1>해커로부터 데이터를 지켜라! - 1</h1>
-        <img src="guard.png" alt="디지털 윤리 지킴이">
-        <p>
-            비밀번호는 데이터를 보호하는 가장 중요한 열쇠입니다.<br>
-            약한 비밀번호는 해커가 쉽게 추측할 수 있어요.<br>
-            강력한 비밀번호를 만들려면 다음 규칙을 지켜주세요:
-        </p>
-        <div class="rules">
-            <ul>
-                <li>대문자, 소문자를 포함하세요.</li>
-                <li>숫자와 특수문자를 조합하세요.</li>
-                <li>8자 이상의 길이로 만드세요.</li>
-            </ul>
-            <div class="example">
-                ex) <strong>약한 비밀번호:</strong> 1234 → <strong>강력한 비밀번호:</strong> MyS3cur3!23
+    <div id="wrapper">
+        <div id="content">
+            <h1>해커로부터 데이터를 지켜라! - 1</h1>
+            <img src="guard.png" alt="디지털 윤리 지킴이">
+            <p>
+                비밀번호는 데이터를 보호하는 가장 중요한 열쇠입니다.<br>
+                약한 비밀번호는 해커가 쉽게 추측할 수 있어요.<br>
+                강력한 비밀번호를 만들려면 다음 규칙을 지켜주세요:
+            </p>
+            <div class="rules">
+                <ul>
+                    <li>대문자, 소문자를 포함하세요.</li>
+                    <li>숫자와 특수문자를 조합하세요.</li>
+                    <li>8자 이상의 길이로 만드세요.</li>
+                </ul>
+                <div class="example">
+                    ex) <strong>약한 비밀번호:</strong> 1234 → <strong>강력한 비밀번호:</strong> MyS3cur3!23
+                </div>
             </div>
+            <button onclick="goToQuiz()">다음</button>
         </div>
-        <button onclick="goToQuiz()">다음</button>
     </div>
 
     <script>
