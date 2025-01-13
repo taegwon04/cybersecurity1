@@ -6,15 +6,20 @@
     <title>해커로부터 데이터를 지켜라!</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             background: linear-gradient(135deg, #1f1c2c, #5a4b81);
             color: #ffffff;
+            font-family: 'Arial', sans-serif;
+        }
+        #wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* 상단부터 시작 */
+            min-height: 100vh; /* 화면 전체 높이를 사용 */
+            padding: 20px; /* 화면 여백 */
+            box-sizing: border-box;
+            overflow-y: auto; /* 콘텐츠가 길어질 경우 스크롤 */
         }
         #content {
             text-align: center;
@@ -76,26 +81,28 @@
     </style>
 </head>
 <body>
-    <div id="content">
-        <h1>해커로부터 데이터를 지켜라! - 2</h1>
-        <img src="guard.png" alt="디지털 윤리 지킴이">
-        <p>
-            모든 사이트에 동일한 비밀번호를 사용하는 것은 위험합니다.<br>
-            한 계정이 해킹되면 다른 계정도 위험해질 수 있어요.<br>
-            각 웹 사이트마다 다른 비밀번호를 설정하는 방법을 알아보세요:
-        </p>
-        <div class="rules">
-            <ul>
-                <li>각 사이트 이름을 포함하거나 특정 규칙을 적용해 기억하기 쉽게 설정합니다.</li>
-                <li>ex) 쇼핑몰 → Show@1234!, 이메일 → Email@1234!</li>
-                <li>모든 계정을 보호하기 위해 비밀번호 관리 앱을 사용하는 것도 좋은 방법입니다.</li>
-            </ul>
-            <div class="example">
-                주의: 동일한 비밀번호를 여러 사이트에 사용하면
-                해킹 위험이 높아질 수 있습니다!
+    <div id="wrapper">
+        <div id="content">
+            <h1>해커로부터 데이터를 지켜라! - 2</h1>
+            <img src="guard.png" alt="디지털 윤리 지킴이">
+            <p>
+                모든 사이트에 동일한 비밀번호를 사용하는 것은 위험합니다.<br>
+                한 계정이 해킹되면 다른 계정도 위험해질 수 있어요.<br>
+                각 웹 사이트마다 다른 비밀번호를 설정하는 방법을 알아보세요:
+            </p>
+            <div class="rules">
+                <ul>
+                    <li>각 사이트 이름을 포함하거나 특정 규칙을 적용해 기억하기 쉽게 설정합니다.</li>
+                    <li>ex) 쇼핑몰 → Show@1234!, 이메일 → Email@1234!</li>
+                    <li>모든 계정을 보호하기 위해 비밀번호 관리 앱을 사용하는 것도 좋은 방법입니다.</li>
+                </ul>
+                <div class="example">
+                    주의: 동일한 비밀번호를 여러 사이트에 사용하면
+                    해킹 위험이 높아질 수 있습니다!
+                </div>
             </div>
+            <button onclick="goToQuiz()">다음: 비밀번호 설정하기</button>
         </div>
-        <button onclick="goToQuiz()">다음: 비밀번호 설정하기</button>
     </div>
 
     <script>
