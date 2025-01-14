@@ -89,7 +89,7 @@
             margin-top: 20px;
             font-size: 1.2em;
             color: #4caf50;
-            display: none; /* 처음에는 숨김 */
+            display: none;
         }
     </style>
 </head>
@@ -108,19 +108,29 @@
     </div>
 
     <script>
+        // 한글 입력을 감지하여 막는 함수
+        document.getElementById('passwordInput').addEventListener('input', (event) => {
+            const inputField = event.target;
+            const koreanRegex = /[가-힣]/; // 한글 감지
+            if (koreanRegex.test(inputField.value)) {
+                alert('한글은 입력할 수 없습니다. 영문으로 비밀번호를 작성해주세요.');
+                inputField.value = inputField.value.replace(koreanRegex, ''); // 한글 제거
+            }
+        });
+
         function checkAnswer() {
             const input = document.getElementById('passwordInput').value;
             const level = document.getElementById('securityLevel');
             const feedback = document.getElementById('securityFeedback');
             const finalMessage = document.getElementById('finalMessage');
-            const regex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            const regex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$/;
 
             let strength = 0;
 
             if (input.length >= 8) strength += 30;
             if (/[A-Z]/.test(input)) strength += 20;
             if (/[a-z]/.test(input)) strength += 20;
-            if (/\d/.test(input)) strength += 15;
+            if (/\\d/.test(input)) strength += 15;
             if (/[@$!%*?&]/.test(input)) strength += 15;
 
             level.style.width = strength + "%";
@@ -128,14 +138,16 @@
             if (regex.test(input)) {
                 feedback.textContent = `강력한 비밀번호입니다! 보안 지수: ${strength}%`;
                 feedback.style.color = "#4caf50";
-                finalMessage.style.display = "block"; // 메시지 표시
+                finalMessage.style.display = "block";
             } else {
                 feedback.textContent = `약한 비밀번호입니다. 보안 지수: ${strength}%`;
                 feedback.style.color = "#ff5722";
-                finalMessage.style.display = "none"; // 메시지 숨김
-                alert("조금 더 강한 비밀번호를 입력해주세요.");
+                finalMessage.style.display = "none";
+                alert("조금 더 강한 비밀번호를 입력해주세요. 비밀번호에는 대문자, 소문자, 특수문자, 숫자가 섞여있어야하며 8글자 이상이어야 보안에 강합니다!");
             }
         }
     </script>
 </body>
 </html>
+
+
