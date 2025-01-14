@@ -123,14 +123,13 @@
             const level = document.getElementById('securityLevel');
             const feedback = document.getElementById('securityFeedback');
             const finalMessage = document.getElementById('finalMessage');
-            const regex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$/;
-
+            const regex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
             let strength = 0;
 
             if (input.length >= 8) strength += 30;
             if (/[A-Z]/.test(input)) strength += 20;
             if (/[a-z]/.test(input)) strength += 20;
-            if (/\\d/.test(input)) strength += 15;
+            if (/\d/.test(input)) strength += 15;
             if (/[@$!%*?&]/.test(input)) strength += 15;
 
             level.style.width = strength + "%";
